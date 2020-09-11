@@ -38,7 +38,7 @@ min = Math.ceil(300);
 max = Math.floor(900);
 
 function draw() {
-    audio1.play();
+   
     
   ctx.drawImage(bg,0,0);
   
