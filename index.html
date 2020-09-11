@@ -12,10 +12,11 @@ body{
       background: linear-gradient(to bottom, #30034bde, #4b34169d);
     }
     #canvas{
-     width: 44%;
-     margin-top:15% ;
-    margin-left: 33%;
-
+      margin: 0 auto; /* выравнивание по центру */
+  padding: 0 10px; /* чтобы текст не упирался в края маленьких экранов стоит слева и справа сделать отступы */
+  width: 960px; /* ширина div */
+  box-sizing: border-box; /* по умолчанию padding будет увеличивать ширину на 20px и див будет вылезать за границу маленьких экранов */
+  max-width: 100%; /* когда э
     
     }
   </style>
