@@ -20,7 +20,7 @@ function  touch() {
         
         yPos -= 240;
     }else if(yPos <= 230){
-        yPos -= 3.95;
+        yPos -= 2.2;
     }
   
     
