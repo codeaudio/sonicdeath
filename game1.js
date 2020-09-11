@@ -88,7 +88,7 @@ function draw() {
   
 
     }
-    if(pips[i].x <=5.6 &&pips[i].x >=5){
+    if(pips[i].x <=5.8 &&pips[i].x >=5){
         score++;
     }
   }
