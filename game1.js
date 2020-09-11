@@ -11,7 +11,7 @@ pipe.src = "img/gra.png";
 bg.src = "img/vampire.jpg";
 ars.src = "img/ars.png";
 document.addEventListener("click",moveUp);
-document.addEventListener("touchmove",moveUp);
+document.addEventListener("touchstart",moveUp);
 
 audio1.src = 's.mp3';
 function moveUp() {
