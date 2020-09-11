@@ -11,9 +11,20 @@ pipe.src = "img/gra.png";
 bg.src = "img/vampire.jpg";
 ars.src = "img/ars.png";
 document.addEventListener("click",moveUp);
-document.addEventListener("touchstart",moveUp);
+document.addEventListener("touchstart",touch);
 
 audio1.src = 's.mp3';
+function  touch() {
+    
+    if(yPos >= 236 ){
+        
+        yPos -= 240;
+    }else if(yPos <= 230){
+        yPos -= 3.95;
+    }
+  
+    
+}
 function moveUp() {
     
     if(yPos >= 236 ){
@@ -38,7 +49,7 @@ min = Math.ceil(300);
 max = Math.floor(900);
 
 function draw() {
-   
+    audio1.play();
     
   ctx.drawImage(bg,0,0);
   
