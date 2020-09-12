@@ -3,14 +3,14 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 let bg = new Image();
-let  pipe = new Image();
+let  danger = new Image();
 let ars = new Image();
 let audio1 = new Audio();
 let score = 0;
 let punch = new Audio();
 let score_audio = new Audio();
 let imgs = ['img/gra.png',"img/vape.png"];
-pipe.src = imgs[Math.floor(Math.random()*imgs.length)];
+danger.src = imgs[Math.floor(Math.random()*imgs.length)];
 bg.src = "img/vampire.jpg";
 ars.src = "img/ars.png";
 
@@ -42,8 +42,8 @@ function moveUp() {
   
     
 }
-let pips = [];
-pips[0] ={
+let dangerous = [];
+dangerous[0] ={
     x:480,
     y:220
 }
@@ -60,30 +60,30 @@ function draw() {
      
   ctx.drawImage(bg,0,0);
   
-  for(let i = 0; i<pips.length; i++){
-    pips[i].x -=1.04;
-  ctx.drawImage(pipe, pips[i].x, pips[i].y);
-  if(pips[i].x >= -1.257){
-  for(let i = 0; i<pips.length; i++){
-    pips[i].x -=0.228;
-    if(pips[i].x == -1.20){
-        pips[i].x -=1.20;
+  for(let i = 0; i<dangerous.length; i++){
+    dangerous[i].x -=1.04;
+  ctx.drawImage(danger, dangerous[i].x, dangerous[i].y);
+  if(dangerous[i].x >= -1.257){
+  for(let i = 0; i<dangerous.length; i++){
+    dangerous[i].x -=0.228;
+    if(dangerous[i].x == -1.20){
+        dangerous[i].x -=1.20;
     }
    }}
-  if(pips[i].x <=100 && pips[i].x>= 97.79999999) {
+  if(dangerous[i].x <=100 && dangerous[i].x>= 97.79999999) {
     
-    pips.push({
-    x: Math.floor(Math.random() * pipe.width + 650),
-    y: Math.floor(Math.random() * pipe.height +143),
+    dangerous.push({
+    x: Math.floor(Math.random() * danger.width + 650),
+    y: Math.floor(Math.random() * danger.height +143),
    
     });
-    if(pips[i]>10){
-    for (pips in pips[i]){
-        pips[i].pop();
+    if(dangerous[i]>10){
+    for (dangerous in dangerous[i]){
+        dangerous[i].pop();
     }}
     }
     
-    if(xPos + 30 >= pips[i].x && xPos + 30<= pips[i].x +90  && yPos + 10 >= pips[i].y && yPos <= pips[i].y +68    ){
+    if(xPos + 30 >= dangerous[i].x && xPos + 30<= dangerous[i].x +90  && yPos + 10 >= dangerous[i].y && yPos <= dangerous[i].y +68    ){
    
         
         
@@ -96,7 +96,7 @@ function draw() {
   
 
     }
-    if(pips[i].x <=5.901 &&pips[i].x >=4){
+    if(dangerous[i].x <=5.901 &&dangerous[i].x >=4){
         score++;
         score_audio.play();
     }
