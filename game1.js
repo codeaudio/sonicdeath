@@ -7,20 +7,26 @@ let  pipe = new Image();
 let ars = new Image();
 let audio1 = new Audio();
 let score = 0;
-pipe.src = "img/gra.png";
+let punch = new Audio();
+let score_audio = new Audio();
+let imgs = ['img/gra.png',"img/vape.png"];
+pipe.src = imgs[Math.floor(Math.random()*imgs.length)];
 bg.src = "img/vampire.jpg";
 ars.src = "img/ars.png";
+
 document.addEventListener("click",moveUp);
 document.addEventListener("touchstart",touch);
 
 audio1.src = 's.mp3';
+score_audio.src = "score.mp3";
+punch.src = "punch.mp3";
 function  touch() {
     
     if(yPos >= 236 ){
         
         yPos -= 240;
     }else if(yPos <= 230){
-        yPos -= 2.2;
+        yPos -= 2.3;
     }
   
     
@@ -31,7 +37,7 @@ function moveUp() {
         
         yPos -= 240;
     }else if(yPos <= 230){
-        yPos -= 19.95;
+        yPos -= 21.95;
     }
   
     
@@ -50,15 +56,16 @@ max = Math.floor(900);
 
 function draw() {
     audio1.play();
-    
+
+     
   ctx.drawImage(bg,0,0);
   
   for(let i = 0; i<pips.length; i++){
     pips[i].x -=1.04;
   ctx.drawImage(pipe, pips[i].x, pips[i].y);
-  if(pips[i].x >= -1.20){
+  if(pips[i].x >= -1.257){
   for(let i = 0; i<pips.length; i++){
-    pips[i].x -=0.225;
+    pips[i].x -=0.228;
     if(pips[i].x == -1.20){
         pips[i].x -=1.20;
     }
@@ -70,34 +77,40 @@ function draw() {
     y: Math.floor(Math.random() * pipe.height +143),
    
     });
-    if(pips[i]>2){
+    if(pips[i]>10){
     for (pips in pips[i]){
-        pips.pop();
+        pips[i].pop();
     }}
     }
-    if(xPos + 30 >= pips[i].x && xPos + 30<= pips[i].x +80  && (yPos-10 >= pips[i].y+90   ||  yPos >= pips[i].y   && yPos<= pips[i].y +20   )){
-   
     
-       
+    if(xPos + 30 >= pips[i].x && xPos + 30<= pips[i].x +90  && yPos + 10 >= pips[i].y && yPos <= pips[i].y +68    ){
+   
+        
+        
+      
+  
+        
+   location.reload();
   
        
-    location.reload();
-        
-     
-   
   
 
     }
-    if(pips[i].x <=5.8 &&pips[i].x >=5){
+    if(pips[i].x <=5.901 &&pips[i].x >=4){
         score++;
+        score_audio.play();
     }
   }
-
+if(score <=0 ){
+    punch.play();
+}
   ctx.drawImage(ars, xPos, yPos);
   yPos += grav;
   if(yPos>236){
       yPos = 236;
+      
   }
+
   
         ctx.strokeStyle = "#F00";
         ctx.font = "italic 30pt Arial";
